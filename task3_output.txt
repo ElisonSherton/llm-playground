@@ -1,0 +1,16 @@
+# Example 1
+
+Utterance:
+Dear Sarah Johnson, your order (Order ID: ORD987654) is in transit. Your purchase includes 1 Wireless Headphones ($70) and 2 Laptop Stands ($25 each), totaling $120. Estimated delivery date: February 5, 2025. Thank you for shopping with us!
+
+Extracted Data:
+order_id='ORD987654' customer_name='Sarah Johnson' items_ordered=[LineItem(item='Wireless Headphones', quantity=1, unit_price=70.0), LineItem(item='Laptop Stands', quantity=2, unit_price=25.0)] total_price=120.0 shipping_status=<ShippingStatus.SHIPPED: 'Shipped'> estimated_delivery_date='February 5, 2025' cot="Step 1: Identify the customer name: 'Dear Sarah Johnson' indicates the customer's name is Sarah Johnson.\\nStep 2: Identify the Order ID: 'Order ID: ORD987654' clearly states the order ID.\\nStep 3: Determine items ordered and their quantities and prices.\\n  - '1 Wireless Headphones ($70)' indicates one item named 'Wireless Headphones' with a unit price of $70.\\n  - '2 Laptop Stands ($25 each)' indicates two items named 'Laptop Stands' with a unit price of $25 each.\\nStep 4: Calculate the total price mentioned: 'totaling $120' confirms the total price of the order.\\nStep 5: Determine the shipping status: 'your order (Order ID: ORD987654) is in transit' suggests the shipping status is 'Shipped'.\\nStep 6: Identify the estimated delivery date: 'Estimated delivery date: February 5, 2025' provides the estimated delivery date."
+
+
+# Example 2
+
+Utterance:
+Sarah, your package (ORD987654) is cruising toward you! 🚀 Inside: 1 Wireless Headphones and 2 Laptop Stands—because one stand just wasn’t enough! Total: $120. ETA: Feb 5, 2025. Get ready!
+
+Extracted Data:
+order_id='ORD987654' customer_name='Sarah' items_ordered=[LineItem(item='Wireless Headphones', quantity=1, unit_price=60.0), LineItem(item='Laptop Stands', quantity=2, unit_price=30.0)] total_price=120.0 shipping_status=<ShippingStatus.SHIPPED: 'Shipped'> estimated_delivery_date='Feb 5, 2025' cot="To extract the order details, I located Sarah's name as the customer. Extracted the order ID 'ORD987654' from the message. Identified that the items ordered were 'Wireless Headphones' (quantity 1) and 'Laptop Stands' (quantity 2). The total cost was explicitly mentioned as $120. I calculated the unit price of each item: for the headphones, assumed $60, and for the stands, calculated $120 - $60 = $60 for two stands, making each $30. The message indicated the package is on its way, suggesting a 'Shipped' status. Lastly, I noted the estimated delivery date as 'Feb 5, 2025' from the ETA given."
